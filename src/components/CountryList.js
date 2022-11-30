@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const url = 'https://restcountries.com/v3.1/';
@@ -22,10 +21,11 @@ export default function CountryList() {
   // to show only the first 10 countries
   const slicedArray = country.slice(0, 10);
 
+  // render country flags as link to detail page
   return (
     <div>
       <h1>Click the flag to see the information of this country!</h1>
-      {slicedArray.slice(0, 10).map((c, i) => {
+      {slicedArray.map((c, i) => {
         return (
           <div key={i}>
             <Link to={`/country/${c.name.common}`} state={c}>
